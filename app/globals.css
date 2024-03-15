@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.input {
+  @apply focus:outline-none border border-zinc-400 rounded-md px-4 py-2;
+}
