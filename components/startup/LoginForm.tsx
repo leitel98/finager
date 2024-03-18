@@ -1,36 +1,30 @@
 'use client';
 
 import React from 'react';
-import { registerSchema } from '@/schemas';
-import { RegisterFormT } from '@/types';
+import { loginSchema } from '@/schemas';
+import { LoginFormT } from '@/types';
 import Button from '../atoms/Button';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { redirect, useRouter } from 'next/navigation';
 
-const INITIAL_FORM_STATE: RegisterFormT = {
+const INITIAL_FORM_STATE: LoginFormT = {
   email: '',
-  name: '',
   password: '',
-  confirmPassword: '',
 };
 
-const RegisterForm: React.FC = () => {
-  const router = useRouter();
-  const handleSubmit = async (values: RegisterFormT, setSubmitting: any) => {
+const LoginForm: React.FC = () => {
+  const handleSubmit = async (values: LoginFormT, setSubmitting: any) => {
     const response = await fetch('/api/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: values.name,
         email: values.email,
         password: values.password,
       }),
     });
     if (response.ok) {
       setSubmitting(false);
-      router.push('/?type=login');
     } else {
       console.error('error creating user');
     }
@@ -39,29 +33,13 @@ const RegisterForm: React.FC = () => {
   return (
     <Formik
       initialValues={INITIAL_FORM_STATE}
-      validationSchema={registerSchema}
+      validationSchema={loginSchema}
       onSubmit={(values, { setSubmitting }) => {
         handleSubmit(values, setSubmitting);
       }}
     >
       {({ isSubmitting }) => (
         <Form className='flex flex-col gap-4'>
-          <div className='flex flex-col'>
-            <label htmlFor='name'>Name</label>
-            <Field
-              type='text'
-              id='name'
-              name='name'
-              placeholder='Your Name'
-              className='input'
-            />
-            <ErrorMessage
-              name='name'
-              component='div'
-              className='text-red-500 text-sm'
-            />
-          </div>
-
           <div className='flex flex-col'>
             <label htmlFor='email'>Email</label>
             <Field
@@ -93,24 +71,8 @@ const RegisterForm: React.FC = () => {
               className='text-red-500 text-sm'
             />
           </div>
-
-          <div className='flex flex-col'>
-            <label htmlFor='confirmPassword'>Confirm Password</label>
-            <Field
-              type='password'
-              id='confirmPassword'
-              name='confirmPassword'
-              placeholder='*********'
-              className='input'
-            />
-            <ErrorMessage
-              name='confirmPassword'
-              component='div'
-              className='text-red-500 text-sm'
-            />
-          </div>
           <Button type='submit' disabled={isSubmitting}>
-            Register
+            Login
           </Button>
         </Form>
       )}
@@ -118,4 +80,4 @@ const RegisterForm: React.FC = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

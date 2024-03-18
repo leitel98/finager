@@ -5,4 +5,9 @@ type RegisterFormT = {
   confirmPassword: string;
 };
 
-export type { RegisterFormT };
+type LoginFormT = {
+  email: string;
+  password: string;
+};
+
+export type { RegisterFormT, LoginFormT };
