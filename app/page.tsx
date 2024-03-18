@@ -1,6 +1,5 @@
 import RegisterForm from '@/components/startup/RegisterForm';
 import Link from 'next/link';
-import { ReadonlyURLSearchParams } from 'next/navigation';
 
 interface HomeProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -12,6 +11,7 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <main className='flex min-h-screen items-center justify-center bg-zinc-200'>
       <div className='flex flex-col gap-4 p-4 rounded-lg border border-zinc-400 bg-white'>
+        <h1 className='text-3xl font-bold mx-auto text-cyan-700'>Please register or log in</h1>
         <section id='controls' className='flex items-center gap-2 mx-auto'>
           <Link
             href={'?type=register'}
