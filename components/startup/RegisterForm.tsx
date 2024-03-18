@@ -108,11 +108,7 @@ const RegisterForm: React.FC = () => {
             />
           </div>
           <Button type='submit' disabled={isSubmitting}>
-            {isSubmitting ? (
-              <Loading className='fill-black w-4 h-4 animate-spin' />
-            ) : (
-              'Register'
-            )}
+            Register
           </Button>
         </Form>
       )}
