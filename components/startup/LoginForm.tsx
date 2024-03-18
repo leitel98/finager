@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { loginSchema } from '@/schemas';
 import { LoginFormT } from '@/types';
 import Button from '../atoms/Button';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { signIn } from 'next-auth/react';
 
 const INITIAL_FORM_STATE: LoginFormT = {
   email: '',
@@ -12,21 +14,19 @@ const INITIAL_FORM_STATE: LoginFormT = {
 };
 
 const LoginForm: React.FC = () => {
+  const router = useRouter();
   const handleSubmit = async (values: LoginFormT, setSubmitting: any) => {
-    const response = await fetch('/api/user', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: values.email,
-        password: values.password,
-      }),
+    const data = await signIn('credentials', {
+      redirect: false,
+      email: values.email,
+      password: values.password,
     });
-    if (response.ok) {
+
+    if (data?.error) {
+      console.error('Sign-in error:', data.error);
       setSubmitting(false);
     } else {
-      console.error('error creating user');
+      window.location.href = '/dashboard';
     }
   };
 

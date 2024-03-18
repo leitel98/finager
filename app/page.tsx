@@ -17,9 +17,9 @@ export default async function Home({ searchParams }: HomeProps) {
         </h1>
         <section id='controls' className='flex items-center gap-2 mx-auto'>
           <Link
-            href={'?type=register'}
+            href={'/'}
             className={`px-6 py-3 rounded-md shadow-md hover:scale-105 transition-all duration-75 ${
-              type === 'register' && 'bg-rose-500 text-white'
+              !type && 'bg-rose-500 text-white'
             }`}
           >
             Register
@@ -33,7 +33,7 @@ export default async function Home({ searchParams }: HomeProps) {
             Log In
           </Link>
         </section>
-        {type === 'register' ? <RegisterForm /> : <LoginForm />}
+        {!type ? <RegisterForm /> : <LoginForm />}
       </div>
     </main>
   );
