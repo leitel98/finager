@@ -1,5 +1,5 @@
 import { ErrorMessage, Field } from 'formik';
-import React, { ReactNode } from 'react';
+import React, { FC } from 'react';
 
 interface InputI {
   type: string;
@@ -8,7 +8,7 @@ interface InputI {
   label: string;
 }
 
-const Input = ({ type, name, placeholder, label }: InputI) => {
+const Input: FC<InputI> = ({ type, name, placeholder, label }) => {
   return (
     <div className='flex flex-col'>
       <label htmlFor='email'>{label}</label>
