@@ -10,7 +10,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const { type } = searchParams;
 
   return (
-    <main className='flex min-h-screen items-center justify-center bg-zinc-200'>
+    <div className='flex min-h-screen items-center w-full justify-center'>
       <div className='flex flex-col gap-4 p-4 rounded-lg border border-zinc-400 bg-white'>
         <h1 className='text-3xl font-bold mx-auto text-cyan-700'>
           Please register or log in
@@ -35,6 +35,6 @@ export default async function Home({ searchParams }: HomeProps) {
         </section>
         {!type ? <RegisterForm /> : <LoginForm />}
       </div>
-    </main>
+    </div>
   );
 }

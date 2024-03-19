@@ -18,10 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`pt-16 ${inter.className}`}>
+      <body className={`pt-16 bg-zinc-200 ${inter.className}`}>
         <Provider>
           <Navbar />
-          {children}
+          <main className='flex mx-auto w-full max-w-7xl 2xl:max-w-8xl'>{children}</main>
         </Provider>
       </body>
     </html>
