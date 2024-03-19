@@ -4,8 +4,9 @@ import React from 'react';
 import { registerSchema } from '@/schemas';
 import { RegisterFormT } from '@/types';
 import Button from '../atoms/Button';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { redirect, useRouter } from 'next/navigation';
+import { Form, Formik } from 'formik';
+import { useRouter } from 'next/navigation';
+import Input from '../atoms/Input';
 
 const INITIAL_FORM_STATE: RegisterFormT = {
   email: '',
@@ -16,6 +17,7 @@ const INITIAL_FORM_STATE: RegisterFormT = {
 
 const RegisterForm: React.FC = () => {
   const router = useRouter();
+  
   const handleSubmit = async (values: RegisterFormT, setSubmitting: any) => {
     const response = await fetch('/api/user', {
       method: 'POST',
@@ -46,69 +48,25 @@ const RegisterForm: React.FC = () => {
     >
       {({ isSubmitting }) => (
         <Form className='flex flex-col gap-4'>
-          <div className='flex flex-col'>
-            <label htmlFor='name'>Name</label>
-            <Field
-              type='text'
-              id='name'
-              name='name'
-              placeholder='Your Name'
-              className='input'
-            />
-            <ErrorMessage
-              name='name'
-              component='div'
-              className='text-red-500 text-sm'
-            />
-          </div>
-
-          <div className='flex flex-col'>
-            <label htmlFor='email'>Email</label>
-            <Field
-              type='email'
-              id='email'
-              name='email'
-              placeholder='your@email.com'
-              className='input'
-            />
-            <ErrorMessage
-              name='email'
-              component='div'
-              className='text-red-500 text-sm'
-            />
-          </div>
-
-          <div className='flex flex-col'>
-            <label htmlFor='password'>Password</label>
-            <Field
-              type='password'
-              id='password'
-              name='password'
-              placeholder='********'
-              className='input'
-            />
-            <ErrorMessage
-              name='password'
-              component='div'
-              className='text-red-500 text-sm'
-            />
-          </div>
-
-          <div className='flex flex-col'>
-            <label htmlFor='confirmPassword'>Confirm Password</label>
-            <Field
-              type='password'
-              id='confirmPassword'
-              name='confirmPassword'
-              placeholder='*********'
-              className='input'
-            />
-            <ErrorMessage
-              name='confirmPassword'
-              component='div'
-              className='text-red-500 text-sm'
-            />
-          </div>
+          <Input type='text' name='name' placeholder='Your Name' label='Name' />
+          <Input
+            type='email'
+            name='email'
+            placeholder='your@email.com'
+            label='Email'
+          />
+          <Input
+            type='password'
+            name='password'
+            placeholder='*******'
+            label='Password'
+          />
+          <Input
+            type='password'
+            name='confirmPassword'
+            placeholder='*******'
+            label='Confirm Password'
+          />
           <Button type='submit' disabled={isSubmitting}>
             Register
           </Button>
