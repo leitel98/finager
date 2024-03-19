@@ -1,12 +1,19 @@
 import LoginForm from '@/components/startup/LoginForm';
 import RegisterForm from '@/components/startup/RegisterForm';
+import { authOptions } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 interface HomeProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export default async function Home({ searchParams }: HomeProps) {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    redirect('/dashboard');
+  }
   const { type } = searchParams;
 
   return (
