@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { loginSchema } from '@/schemas';
 import { LoginFormT } from '@/types';
 import Button from '../atoms/Button';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikHelpers } from 'formik';
 import { signIn } from 'next-auth/react';
 import Input from '../atoms/Input';
 
@@ -23,7 +23,10 @@ const LoginForm: React.FC = () => {
     }, 3000);
   };
 
-  const handleSubmit = async (values: LoginFormT, setSubmitting: any) => {
+  const handleSubmit = async (
+    values: LoginFormT,
+    actions: FormikHelpers<LoginFormT>
+  ) => {
     const data = await signIn('credentials', {
       redirect: false,
       email: values.email,
@@ -31,7 +34,7 @@ const LoginForm: React.FC = () => {
     });
     if (data?.error) {
       showError();
-      setSubmitting(false);
+      actions.setSubmitting(false);
     } else {
       window.location.href = '/dashboard';
     }
@@ -42,9 +45,7 @@ const LoginForm: React.FC = () => {
       <Formik
         initialValues={INITIAL_FORM_STATE}
         validationSchema={loginSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          handleSubmit(values, setSubmitting);
-        }}
+        onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
           <Form className='flex flex-col gap-4'>
