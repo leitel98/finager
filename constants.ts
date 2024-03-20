@@ -1,3 +1,11 @@
+import { SelectOptionsT } from './types';
+
+export const MOVEMENT_TYPES: SelectOptionsT[] = [
+  { label: 'income', value: 'income' },
+  { label: 'expense', value: 'expense' },
+  { label: 'inversion', value: 'inversion' },
+];
+
 const INCOME_CATEGORIES = ['salary', 'bonus', 'gift', 'other'];
 const EXPENSES_CATEGORIES = [
   'housing',

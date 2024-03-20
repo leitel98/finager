@@ -1,6 +1,6 @@
 'use client';
 
-import Button from './Button';
+import Button from '../atoms/Button';
 import { signOut } from 'next-auth/react';
 
 const SignOutButton = () => {

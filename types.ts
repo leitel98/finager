@@ -1,13 +1,16 @@
-type RegisterFormT = {
+export type RegisterFormT = {
   email: string;
   name: string;
   password: string;
   confirmPassword: string;
 };
 
-type LoginFormT = {
+export type LoginFormT = {
   email: string;
   password: string;
 };
 
-export type { RegisterFormT, LoginFormT };
+export type SelectOptionsT = {
+  label: string | React.ReactNode;
+  value: any;
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import { authOptions } from '@/lib/auth';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
 import { getServerSession } from 'next-auth';
-import SignOutButton from '../atoms/SignOutButton';
+import SignOutButton from './SignOutButton';
 
 const Navbar: React.FC = async () => {
   const session = await getServerSession(authOptions);

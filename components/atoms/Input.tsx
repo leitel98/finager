@@ -11,7 +11,7 @@ interface InputI {
 const Input: FC<InputI> = ({ type, name, placeholder, label }) => {
   return (
     <div className='flex flex-col'>
-      <label htmlFor='email'>{label}</label>
+      <label htmlFor={name}>{label}</label>
       <Field
         type={type}
         id={name}
