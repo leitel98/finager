@@ -1,4 +1,4 @@
-import Filters from '@/components/dashboard/Filters';
+import IncomeFilters from '@/components/dashboard/IncomeFilters';
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 import { redirect, RedirectType } from 'next/navigation';
@@ -11,13 +11,20 @@ export default async function Dashboard() {
   }
   return (
     <div className='w-full min-h-screen grid grid-cols-7 p-8 bg-white text-slate-800'>
-      <Filters />
-      <div className='h-full flex flex-col gap-8 col-span-2'>
+      <section className='h-full flex flex-col gap-4 col-span-1'>
+        <h1 className='text-xl font-bold mx-auto'>Filters</h1>
+        <div className='flex flex-col gap-4'>
+          <h2 className='text-lg font-medium mx-auto'>Income</h2>
+          <IncomeFilters />
+          <h2 className='text-lg font-medium mx-auto'>Expenses</h2>
+        </div>
+      </section>
+      <section className='h-full flex flex-col gap-8 col-span-2'>
         <h1 className='text-xl font-bold mx-auto'>My data</h1>
-      </div>
-      <div className='h-full flex flex-col gap-8 col-span-4'>
+      </section>
+      <section className='h-full flex flex-col gap-8 col-span-4'>
         <h1 className='text-xl font-bold'>Summary</h1>
-      </div>
+      </section>
     </div>
   );
 }
