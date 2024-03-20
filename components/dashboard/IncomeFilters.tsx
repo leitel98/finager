@@ -11,7 +11,7 @@ const IncomeFilters = () => {
         <Button
           onClick={() => handleIncomeFilterChange(category)}
           size='tag'
-          color='emerald'
+          color='cyan'
           active={active}
           key={category}
         >

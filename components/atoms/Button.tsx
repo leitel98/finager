@@ -18,12 +18,12 @@ const Button: React.FC<ButtonProps> = ({
   const colors = {
     cyan: `${
       active
-        ? `bg-cyan-600 hover:bg-cyan-400 text-white`
-        : 'bg-zinc-400/30 text-black hover:bg-zinc-400/30'
+        ? `bg-cyan-600 hover:bg-cyan-400 text-white hover:text-black`
+        : 'bg-zinc-400/30 hover:bg-zinc-400/30 text-black '
     }`,
     rose: `${
       active
-        ? `bg-rose-600 hover:bg-rose-400 text-white`
+        ? `bg-rose-600 hover:bg-rose-400 text-white hover:text-black`
         : 'bg-zinc-400/30 hover:bg-zinc-400/30 text-black'
     }`,
     emerald: `${
