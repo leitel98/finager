@@ -1,6 +1,5 @@
 'use client';
 
-import PowerButton from '@/public/icons/PowerButton';
 import Button from './Button';
 import { signOut } from 'next-auth/react';
 
