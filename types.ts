@@ -11,6 +11,6 @@ export type LoginFormT = {
 };
 
 export type SelectOptionsT = {
-  label: string | React.ReactNode;
+  label: string;
   value: any;
 };
