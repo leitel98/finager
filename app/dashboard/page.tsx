@@ -1,3 +1,4 @@
+import ExpensesFilters from '@/components/dashboard/ExpensesFilters';
 import IncomeFilters from '@/components/dashboard/IncomeFilters';
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
@@ -17,6 +18,7 @@ export default async function Dashboard() {
           <h2 className='text-lg font-medium mx-auto'>Income</h2>
           <IncomeFilters />
           <h2 className='text-lg font-medium mx-auto'>Expenses</h2>
+          <ExpensesFilters />
         </div>
       </section>
       <section className='h-full flex flex-col gap-8 col-span-2'>

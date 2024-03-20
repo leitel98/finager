@@ -3,15 +3,15 @@
 import { useFilters } from '@/context/FiltersProvider';
 import Button from '../atoms/Button';
 
-const IncomeFilters = () => {
-  const { incomeFilters, handleIncomeFilterChange } = useFilters();
+const ExpensesFilters = () => {
+  const { expensesFilters, handleExpensesFilterChange } = useFilters();
   return (
     <div className='flex flex-col w-full gap-2'>
-      {Object.entries(incomeFilters).map(([category, active]) => (
+      {Object.entries(expensesFilters).map(([category, active]) => (
         <Button
-          onClick={() => handleIncomeFilterChange(category)}
+          onClick={() => handleExpensesFilterChange(category)}
           size='tag'
-          color='emerald'
+          color='rose'
           active={active}
           key={category}
         >
@@ -22,4 +22,4 @@ const IncomeFilters = () => {
   );
 };
 
-export default IncomeFilters;
+export default ExpensesFilters;
