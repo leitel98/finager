@@ -5,3 +5,7 @@
 .input {
   @apply focus:outline-none border border-zinc-400 rounded-md px-4 py-2;
 }
+
+.tag {
+  @apply border border-slate-900 rounded-tl-lg rounded-br-lg py-1 w-full capitalize;
+}

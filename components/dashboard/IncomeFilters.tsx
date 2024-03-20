@@ -1,22 +1,22 @@
 'use client';
 
 import { useFilters } from '@/context/FiltersProvider';
+import Button from '../atoms/Button';
 
 const IncomeFilters = () => {
   const { incomeFilters, handleIncomeFilterChange } = useFilters();
-
   return (
     <>
-      {Object.entries(incomeFilters).map(([category, enabled]) => (
-        <button
+      {Object.entries(incomeFilters).map(([category, active]) => (
+        <Button
           onClick={() => handleIncomeFilterChange(category)}
-          className={`border border-slate-900 rounded-tl-lg rounded-br-lg py-1 capitalize ${
-            !enabled ? 'bg-zinc-400/30' : 'bg-emerald-600 text-white'
-          }`}
+          size='tag'
+          color='emerald'
+          active={active}
           key={category}
         >
           {category}
-        </button>
+        </Button>
       ))}
     </>
   );
