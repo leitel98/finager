@@ -51,7 +51,7 @@ const NewMovementForm = () => {
             name='category'
             label='category'
             active={values.category}
-            options={NEW_MOVEMENT_CATEGORY_OPTIONS[values.type] || []}
+            options={NEW_MOVEMENT_CATEGORY_OPTIONS[values.type]}
           />
         </Form>
       )}
