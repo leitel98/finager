@@ -45,8 +45,8 @@ const RegisterForm: React.FC = () => {
     <Formik
       initialValues={INITIAL_FORM_STATE}
       validationSchema={registerSchema}
-      enableReinitialize
       onSubmit={handleSubmit}
+      enableReinitialize
     >
       {({ isSubmitting }) => (
         <Form className='flex flex-col gap-4'>

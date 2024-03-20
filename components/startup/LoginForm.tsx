@@ -46,6 +46,7 @@ const LoginForm: React.FC = () => {
         initialValues={INITIAL_FORM_STATE}
         validationSchema={loginSchema}
         onSubmit={handleSubmit}
+        enableReinitialize
       >
         {({ isSubmitting }) => (
           <Form className='flex flex-col gap-4'>
