@@ -17,7 +17,7 @@ const INITIAL_FORM_STATE: RegisterFormT = {
 
 const RegisterForm: React.FC = () => {
   const router = useRouter();
-  
+
   const handleSubmit = async (values: RegisterFormT, setSubmitting: any) => {
     const response = await fetch('/api/user', {
       method: 'POST',
@@ -42,6 +42,7 @@ const RegisterForm: React.FC = () => {
     <Formik
       initialValues={INITIAL_FORM_STATE}
       validationSchema={registerSchema}
+      enableReinitialize
       onSubmit={(values, { setSubmitting }) => {
         handleSubmit(values, setSubmitting);
       }}
