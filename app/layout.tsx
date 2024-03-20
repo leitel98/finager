@@ -3,6 +3,7 @@ import { Fredoka } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
 import Provider from '@/components/providers/Provider';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const fredoka = Fredoka({ subsets: ['latin'] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
             {children}
           </main>
         </Provider>
+        <SpeedInsights />
       </body>
     </html>
   );
