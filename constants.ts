@@ -19,17 +19,19 @@ const EXPENSES_CATEGORIES = [
   'other',
 ];
 
-export const INCOME_CATEGORIES_OPTIONS: SelectOptionsT[] =
-  INCOME_CATEGORIES.map((category) => ({
+const INCOME_CATEGORIES_OPTIONS: SelectOptionsT[] = INCOME_CATEGORIES.map(
+  (category) => ({
     label: category,
     value: category,
-  }));
+  })
+);
 
-export const EXPENSES_CATEGORIES_OPTIONS: SelectOptionsT[] =
-  EXPENSES_CATEGORIES.map((category) => ({
+const EXPENSES_CATEGORIES_OPTIONS: SelectOptionsT[] = EXPENSES_CATEGORIES.map(
+  (category) => ({
     label: category,
     value: category,
-  }));
+  })
+);
 
 export const INVERSION_CATEGORIES_OPTIONS: SelectOptionsT[] = [
   { label: 'inversion', value: 'inversion' },
