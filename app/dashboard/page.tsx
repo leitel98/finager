@@ -3,7 +3,7 @@ import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 import { redirect, RedirectType } from 'next/navigation';
 
-async function Dashboard() {
+export default async function Dashboard() {
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -21,5 +21,3 @@ async function Dashboard() {
     </div>
   );
 }
-
-export default Dashboard;
